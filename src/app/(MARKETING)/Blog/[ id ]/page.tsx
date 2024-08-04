@@ -6,21 +6,18 @@ type BlogDetailPageProps = {
         id : string;
     }
 }
-const findBlogDetail = (id:number)=>{
+const findBlogDetail = (id:number)=>{ 
     console.log("findBlogDetail id: ", id)
-    const blog = blogs.find((item)=>{
-        return item.id === id
+     return blogs.find((item)=>{
+       item.id === id
     })
-    return blog;
+  
 }
 
 function BlogDetail({ params}: BlogDetailPageProps){
     console.log("BlogDetail params: ", params.id);
     const blog = findBlogDetail(Number(params.id));
-    console.log("BlogDetail params: ", blog);
-}
-
-const page = () => {
+   
   return (
     <div>
       Blog Detail
@@ -28,7 +25,6 @@ const page = () => {
         <h1 className="font-bold">
             {blog?.title}
         </h1>
-        <p>{blog?.description}</p>
         <p>{blog?.content}</p>
         <p>{blog?.author}</p>
 
@@ -37,4 +33,4 @@ const page = () => {
   )
 }
 
-export default page
+export default BlogDetail;
